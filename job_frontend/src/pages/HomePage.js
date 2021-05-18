@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import JobList from '../components/JobList/JobList.js';
 import { fetchJobs } from '../api/JobsAPI.js';
+import '../App.css'
 
 class HomePage extends Component {
   state = {
@@ -18,8 +19,8 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div class="job-list-container">
+        <div class="job-list">
           <JobList jobs={this.state.jobs} />
         </div>
         <br />

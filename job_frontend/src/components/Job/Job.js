@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
+import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class Job extends Component {
   render() {
     const { name, description, city, state, applied } = this.props;
     return (
       <div>
-        <h1>{ name }</h1>
-        <h4>{ description }</h4>
-        <h4>{ city }</h4>
-        <h4>{ state }</h4>
-        <h4>{ applied }</h4>
+        <Card>
+          <CardBody>
+            <CardTitle tag="h1">{ name }</CardTitle>
+            <CardText>{ description }</CardText>
+            <CardText>{ city }</CardText>
+            <CardText>{ state }</CardText>
+            <CardText>{ applied }</CardText>
+          </CardBody>
+        </Card>
       </div>
     )
   }

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Job from '../components/Job/Job.js';
 import { deleteJob, fetchJobByID } from '../api/JobsAPI.js';
 import { Link, Redirect } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import Button from 'react-bootstrap/Button';
+import '../App.css';
 
 class JobPage extends Component {
   state = {
@@ -10,7 +11,7 @@ class JobPage extends Component {
     redirect: false
   };
 
-  handleSubmit = async (event) => {
+  handleDeleteSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await deleteJob(this.props.match.params.jobID);
@@ -43,11 +44,16 @@ class JobPage extends Component {
     }
 
     return (
-      <div>
+      <div className="job-page-container">
         {this.state.job ? <span>
           <Job {...this.state.job  } />
           <Link to={`/jobs/${this.props.match.params.jobID}/edit`}>Edit</Link>
-          <Button onClick={this.handleSubmit}>Delete Job</Button>
+          <br></br>
+          <br></br>
+          <Button onClick={this.handleDeleteSubmit}>Delete Job</Button>
+          <br></br>
+          <br></br>
+          <Link to={`/`}>BACK TO JOBS</Link>
           </span> : 
           <span>404: Job Not Found</span>
     }
